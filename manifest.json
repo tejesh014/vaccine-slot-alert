@@ -1,0 +1,14 @@
+{
+    "name": "ONTVA",
+    "description": "vacchine slot alert OPTIONS",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting", "tabs", "alarms", "notifications"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "options_page": "options_new.html"
+}
