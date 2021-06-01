@@ -110,7 +110,7 @@ var OptionsModule = (function () {
         var filters = document.getElementsByClassName("age_limit_filter");
         for (var i = 0; i < filters.length; i++) {
             filters[i].addEventListener('click', e => {
-                let filter_val = e.target.value;
+                let filter_val = parseInt(e.target.value);
                 let filter_field = "age_limits";
                 if (e.currentTarget.checked) {
                     addValue(filter_field, filter_val);
@@ -151,8 +151,6 @@ var OptionsModule = (function () {
         }
     };
 
-
-
     var addValue = function (field_name, filter_value) {
         var cur = filters[field_name];
         if (cur) {
@@ -169,17 +167,32 @@ var OptionsModule = (function () {
         }
     };
 
-    var validateFilters = () => {
+    var validateFilters = function() {
         return (filters.state && filters.district);
-    };
+    }
 
     var handleSaveFiltersClick = function () {
         document.getElementById("save_filters").addEventListener("click", e => {
             if (validateFilters()) {
-                chrome.storage.local.set({ saved_filters: filters });
+                chrome.storage.local.set({
+                    saved_filters: {
+                        ...filters,
+                        age_limits: toArray(filters.age_limits),
+                        vaccines: toArray(filters.vaccines),
+                        fee_types: toArray(filters.fee_types),
+                        dose: toArray(filters.dose)
+                    }
+                }, function () {
+                    chrome.alarms.create("clear-slot-alerts-v1", { when: 0 });
+                });
             }
         });
     };
+
+
+    var toArray = (set_val) => {
+        return (set_val && set_val.size > 0 ? Array.from(set_val) : null)
+    }
 
     var init = function () {
         getStates();
