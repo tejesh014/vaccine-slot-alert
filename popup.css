@@ -1,4 +1,32 @@
 body {
   width: 450px;
-  height: 450px;
+  min-height: 300px;
+  padding: 5px;
+}
+#main_content {
+  position: relative;
+}
+
+#options{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 5px;
+}
+
+#no_saved_filters {
+  display: none;
+}
+
+#no_saved_filters.show {
+  display: block;
+}
+
+tr {
+  font-size: 0.7rem;
 }

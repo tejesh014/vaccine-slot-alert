@@ -183,6 +183,7 @@ var OptionsModule = (function () {
                         dose: toArray(filters.dose)
                     }
                 }, function () {
+                    alert("Filters saved");
                     chrome.alarms.create("clear-slot-alerts-v1", { when: 0 });
                 });
             }
