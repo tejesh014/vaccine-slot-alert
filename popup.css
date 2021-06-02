@@ -30,3 +30,11 @@ body {
 tr {
   font-size: 0.7rem;
 }
+
+.alert_action_btn {
+  display: none;
+}
+
+.alert_action_btn.show {
+  display: block;
+}

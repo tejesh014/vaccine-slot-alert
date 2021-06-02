@@ -1,5 +1,8 @@
 let states_key = "cowin_states";
-var alarmName = "slots-alert-v1";
+var slot_alert_alarm = "slots-alert-v1";
+
+var create_alert_alarm = "create-slot-alert-v1";
+var stop_alert_alarm = "clear-slot-alerts-v1";
 
 let fetchWithGet = (url) =>
   fetch(url).then((response) => {
@@ -13,11 +16,14 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.alarms.onAlarm.addListener(function (alarm) {
   console.log("Got an alarm!", alarm);
   switch (alarm.name) {
-    case "clear-slot-alerts-v1":
-      chrome.alarms.clear(alarmName);
-      chrome.alarms.create(alarmName, { periodInMinutes: 0.3 });
+    case stop_alert_alarm:
+      console.log("clearing any existing alarms with ", slot_alert_alarm);
+      chrome.alarms.clear(slot_alert_alarm);
       break;
-    case alarmName:
+    case create_alert_alarm:
+      chrome.alarms.create(slot_alert_alarm, { periodInMinutes: 0.3 });
+      break;
+    case slot_alert_alarm:
       chrome.storage.local.get("saved_filters", (result) => {
         fetchSlotsNew(result.saved_filters).then((cts) => {
           if (cts.length > 0) {
@@ -25,7 +31,7 @@ chrome.alarms.onAlarm.addListener(function (alarm) {
               "reminder",
               {
                 type: "basic",
-                iconUrl: 'alert-icon.png',
+                iconUrl: "alert-icon.png",
                 title: "SLOTS ALERT",
                 message: "Slots available!!",
               },
