@@ -1,6 +1,6 @@
 {
-    "name": "ONTVA",
-    "description": "vacchine slot alert OPTIONS",
+    "name": "vaccine-slot-alert",
+    "description": "Covid Vaccine slot alerts",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
@@ -10,5 +10,6 @@
     "action": {
         "default_popup": "popup.html"
     },
-    "options_page": "options_new.html"
+    "options_page": "options_new.html",
+    "author": "tejesh konchada - @tejesh014"
 }
