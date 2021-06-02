@@ -1,0 +1,30 @@
+.filters {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.filter-row{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 13px 0;
+}
+
+.filter-label {
+    font-weight: 600;
+}
+
+.filter-values {
+    display: flex;
+}
+
+.checkbox-filter {
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.value-label {
+    margin-right: 2px;
+    line-height: 1;
+}

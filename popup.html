@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <!-- <script src="vue-dev.js"></script> -->
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div id="main_content" class="d-flex flex-column justify-content-center">
+    <div id="options" class="btn btn-primary btn-sm">Set Filters</div>
+    <div id="selected_options_section">
+      <h5>Selected Filters</h3>
+        <div id="saved_filters_content">
+          <p class="no_saved_filters" id="no_saved_filters">No saved filters</p>
+          <table id="filters_table" class="table table-striped table-bordered">
+            <tbody id="filters_table_body">
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <p class="footer"><small class="text-muted">Made by tejesh konchada</small></p>
+  </div>
+  <script src="popup.js"></script>
+
+</body>
+
+</html>
