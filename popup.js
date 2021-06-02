@@ -11,7 +11,7 @@ var PopupModule = (function () {
   var handleStartAlertsClick = () => {
     let startAlertBtn = document.getElementById("start_alerts");
     startAlertBtn.addEventListener("click", async () => {
-      chrome.alarms.create(slot_alerts_alarm, { periodInMinutes: 0.3 });
+      chrome.alarms.create("create-slot-alert-v1", { delayInMinutes: 0.1 });
       showHideAlertActionButton("start_alerts", false);
       showHideAlertActionButton("stop_alerts", true);
     });
