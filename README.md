@@ -7,7 +7,8 @@ No hassle of checking for vaccine slot availability while working. Configure the
 * In the browser enable `Developer mode` at `edge://extensions/` or `chrome://extensions/`.
 * Click on `Load Unpacked` and upload the extracted folder. Now the `vaccine-slot-alert` is added to the browser.
 * Click on the extension icon, then in the popup window click `Set Filters`.
-* Select the filters and click save. DONE!
+* Select the filters and click save. The alerts are configured now.
+* To stop the alerts click on the `vaccine-slot-alert` icon and click `STOP ALERTS` button at the bottom. 
 
 ## Filters
 Supported filters are `AGE LIMIT, FEE TYPE, VACCINE NAME, DOSE TYPE and DISTRICT`. Currently only filtering based on a single `district` is allowed (not `PINCODE` based), but soon `multiple districts` will be supported.
