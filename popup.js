@@ -57,7 +57,7 @@ var PopupModule = (function () {
   };
 
   var handleAlertActionBtnsDisplay = () => {
-    chrome.alarms.get(slot_alerts_alarm).then((alarm) => {
+    chrome.alarms.get(slot_alerts_alarm, (alarm) => {
       if (alarm) {
         showHideAlertActionButton("stop_alerts", true);
       } else {
