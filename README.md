@@ -13,6 +13,13 @@ No hassle of checking for vaccine slot availability while working. Configure the
 ## Filters
 Supported filters are `AGE LIMIT, FEE TYPE, VACCINE NAME, DOSE TYPE and DISTRICT`. Currently only filtering based on a single `district` is allowed (not `PINCODE` based), but soon `multiple districts` will be supported.
 
+## Screenshots
+#### Main popup
+<img width="450" alt="popup" src="https://user-images.githubusercontent.com/9055661/120549123-c47d5100-c410-11eb-8a44-fdf771ae417e.png">
+
+#### Filters Menu
+<img width="563" alt="set-filters" src="https://user-images.githubusercontent.com/9055661/120549285-04443880-c411-11eb-9ada-e4995d357f3b.png">
+
 ## In the background
 The `vaccine-slot-alert` checks for slots till next 7 days every `18 seconds` using the cowin public API [/v2/appointment/sessions/public/calendarByDistrict](https://apisetu.gov.in/public/marketplace/api/cowin) and notifies if any of them match the `saved filters` criteria.
 
