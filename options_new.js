@@ -8,6 +8,7 @@ var OptionsModule = (function () {
     vaccines: null,
     fee_types: null,
     dose: null,
+    from_date: null
   };
 
   var getStates = () => {
@@ -153,6 +154,18 @@ var OptionsModule = (function () {
     }
   };
 
+  var handleFromDateChange = function() {
+    var dateFilter = document.getElementById("from_date");
+    dateFilter.addEventListener("change", (e) => {
+      let from_date_obj = e.target.valueAsDate;
+      console.log(from_date_obj);
+      filters = {
+        ...filters,
+        from_date: from_date_obj.toJSON(),
+      };
+    })
+  };
+
   var addValue = function (field_name, filter_value) {
     var cur = filters[field_name];
     if (cur) {
@@ -207,6 +220,7 @@ var OptionsModule = (function () {
     handleStateChange();
     handleDistrictChange();
     handleDoseChange();
+    handleFromDateChange();
     handleSaveFiltersClick();
   };
 

@@ -67,7 +67,7 @@ var PopupModule = (function () {
   };
 
   var getFiltersVM = (saved_filters) => {
-    var { age_limits, district, state, dose, fee_types, vaccines } =
+    var { age_limits, district, state, dose, fee_types, vaccines, from_date } =
       saved_filters;
     return {
       "Age Limits": maybeGetArrayString(age_limits),
@@ -76,6 +76,7 @@ var PopupModule = (function () {
       Doses: maybeGetArrayString(dose),
       "Fee types": maybeGetArrayString(fee_types),
       Vaccines: maybeGetArrayString(vaccines),
+      "From Date": from_date ? (new Date(from_date)).toDateString() : "NA"
     };
   };
 
