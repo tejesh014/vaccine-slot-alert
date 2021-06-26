@@ -64,11 +64,15 @@ var getCenterText = (center) => {
 function fetchSlotsNew(filters) {
   var url =
     "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict";
-  var { district } = filters;
+  var { district, from_date } = filters;
   var today = new Date();
-  var week = `${today.getDate()}-${
-    today.getMonth() + 1
-  }-${today.getFullYear()}`;
+
+  var from_date_obj = from_date ? (new Date(from_date)) : null;
+  var start_date = (from_date_obj == null || from_date_obj.getTime() < today.getTime()) ? today : from_date_obj;
+  var week = `${start_date.getDate()}-${
+    start_date.getMonth() + 1
+  }-${start_date.getFullYear()}`;
+  console.log("week is : ", week);
   return fetchWithGet(`${url}?district_id=${district.id}&date=${week}`).then(
     (data) => {
       return processResults([data], filters);
